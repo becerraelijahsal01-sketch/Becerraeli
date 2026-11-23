@@ -3,13 +3,620 @@
   <head>
     <meta charset="utf-8" />
     <title>BECERRA ELIJAH 10C F26</title>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Elijah Becerra - Digital Portfolio & Creative Archive | SMC 10C Fall 2026. Exploring deep sea web experiences, design, and creative technology." />
 
+    <!-- Google Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <!-- Scripts: Lightswitch & Core Deep Sea Engine -->
+    <script defer src="scripts/lightswitch.js"></script>
+    <script defer src="scripts/main.js"></script>
   </head>
   <body>
-<img src="Demo.png" alt="Girl in a jacket" width="500" height="600">
-    <!-- <script defer src="scripts/lightswitch.js"></script>-->
+    <!-- Fullscreen Marine Snow & Bioluminescent Plankton Canvas -->
+    <canvas id="ocean-canvas"></canvas>
+    <div class="ocean-ambient-glow"></div>
+
+    <!-- Submersible Depth HUD (Floating Telemetry Gauge) -->
+    <aside class="depth-hud" aria-label="Submersible Depth Telemetry">
+      <div class="telemetry-label">
+        <span class="ping-dot"></span> SONAR DEPTH
+      </div>
+      <div class="depth-value" id="depth-counter">-120m</div>
+      <div class="zone-tag" id="zone-tag">EPIPELAGIC</div>
+      <div class="depth-bar-container">
+        <div class="depth-bar-fill" id="depth-fill"></div>
+      </div>
+    </aside>
+
+    <!-- Navigation Bar -->
+    <header class="site-header">
+      <div class="nav-container">
+        <a href="#hero" class="nav-brand">
+          <div class="brand-icon">⚓</div>
+          <div class="brand-text">
+            <span class="brand-title">BECERRA ELIJAH</span>
+            <span class="brand-sub">SMC 10C • F26</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#hero" class="active">Surface</a></li>
+          <li><a href="#about">Specimen Log</a></li>
+          <li><a href="#projects">Work & Archive</a></li>
+          <li><a href="#skills">Arsenal</a></li>
+          <li><a href="#contact">Sonar Ping</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <!-- Lightswitch Toggle (Submersible Searchlight vs Bioluminescence) -->
+          <button id="lightswitch-btn" class="btn-lightswitch" type="button" aria-label="Toggle Submersible Light">
+            <span class="light-icon">⚡</span> Biolum Mode
+          </button>
+
+          <!-- GitHub Link -->
+          <a href="https://github.com/becerraelijahsal01-sketch/Becerraeli" target="_blank" rel="noopener noreferrer" class="btn-github" title="Visit GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button class="mobile-toggle" aria-label="Toggle Navigation Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ====================================================================
+           HERO SECTION // Epipelagic Zone (-200m)
+           ==================================================================== -->
+      <section id="hero" class="hero-section">
+        <div class="section-container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <div class="hero-pretitle">
+                <span class="ping-dot"></span> RESEARCH & CREATIVE ARCHIVE // 10C F26
+              </div>
+              <h1 class="hero-name">ELIJAH BECERRA</h1>
+              <div class="hero-tagline">
+                Creative Technologist ✦ <span class="highlight-term">Deep Sea Digital Lab</span>
+              </div>
+              <p class="hero-description">
+                Diving into code, visual systems, and dynamic web applications. Designing interactive digital artifacts forged beneath the surface of conventional design.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#projects" class="btn-primary">
+                  <span>Explore Work</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+                </a>
+                <a href="#about" class="btn-secondary">Inspect Specimen Log</a>
+              </div>
+
+              <div class="hero-telemetry-strip">
+                <div>CLASS: <span>10C F26</span></div>
+                <div>TERMINAL: <span>PORTFOLIO_OS v2.6</span></div>
+                <div>DEPTH: <span>-11,034M MAX</span></div>
+                <div>STATUS: <span>ACTIVE & READY</span></div>
+              </div>
+            </div>
+
+            <!-- Sonar Radar Viewport Visual -->
+            <div class="hero-visual">
+              <div class="sonar-viewport">
+                <div class="sonar-sweep"></div>
+                <div class="sonar-ring"></div>
+                <div class="sonar-ring"></div>
+                <div class="sonar-ring"></div>
+                <div class="sonar-crosshair"></div>
+                <div class="sonar-center-orb"></div>
+                <div class="sonar-blip blip-1"></div>
+                <div class="sonar-blip blip-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ABOUT & SPECIMEN LOG // Mesopelagic Twilight Zone (-1,000m)
+           Incorporates Elijah's Demo.png and demographics
+           ==================================================================== -->
+      <section id="about" class="about-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="depth-badge">ZONE: MESOPELAGIC // -1,000M</div>
+            <h2 class="section-title">Specimen <span class="glow-text">Logbook</span></h2>
+            <p class="section-desc">
+              Visual records and telemetry data captured from deep dive expeditions in digital design and creative computing.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <!-- Left: Submersible Viewport Frame for Demo.png -->
+            <div class="submersible-frame">
+              <div class="frame-top-bar">
+                <span>[SPECIMEN_01 // VISUAL_LOG]</span>
+                <span>STATUS: ARCHIVED</span>
+              </div>
+
+              <div class="specimen-image-wrapper">
+                <!-- User's Image Requirement: Demo.png (500x600) with fallback -->
+                <img
+                  src="Demo.png"
+                  alt="Girl in a jacket"
+                  width="500"
+                  height="600"
+                  class="specimen-img"
+                  loading="lazy"
+                />
+                <!-- CRT Scanlines & Laser Sweep Animation -->
+                <div class="scanline-overlay"></div>
+                <div class="scanner-laser"></div>
+              </div>
+
+              <div class="frame-bottom-bar">
+                <span>COORD: 11°22'N 142°35'E</span>
+                <span>RESOLUTION: 500x600 HD</span>
+              </div>
+            </div>
+
+            <!-- Right: About Elijah & Demographics -->
+            <div class="about-text">
+              <h3>Diving Beneath the Surface</h3>
+              <p>
+                Hello! I'm <strong>Elijah Becerra</strong>, a student in Santa Monica College's <strong>10C (Fall 2026)</strong> course. I build dynamic, responsive, and visually immersive web experiences with an emphasis on bold aesthetics and clean code.
+              </p>
+              <p>
+                Inspired by the mysteries of the oceanic abyss and bioluminescent marine ecosystems, this portfolio serves as my digital submarine: an interactive space where you can explore my projects, experiments, and technical explorations.
+              </p>
+
+              <!-- Demographics & Course Stats -->
+              <div class="demographics-grid">
+                <div class="stat-card">
+                  <div class="stat-label">Student / Author</div>
+                  <div class="stat-value">Elijah Becerra</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Course Term</div>
+                  <div class="stat-value">SMC 10C • Fall 2026</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Core Focus</div>
+                  <div class="stat-value">Interactive UI & Design</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Deployment</div>
+                  <div class="stat-value">GitHub Pages</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           PROJECTS SHOWCASE // Bathypelagic Midnight Zone (-4,000m)
+           ==================================================================== -->
+      <section id="projects" class="projects-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="depth-badge">ZONE: BATHYPELAGIC // -4,000M</div>
+            <h2 class="section-title">Abyssal <span class="glow-text">Works</span></h2>
+            <p class="section-desc">
+              Curated specimens and creative projects. Click <em>Inspect Specimen</em> for full telemetry or view live builds.
+            </p>
+          </div>
+
+          <!-- Category Filters -->
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">All Specimens</button>
+            <button class="filter-btn" data-filter="web">Web & Apps</button>
+            <button class="filter-btn" data-filter="design">Graphic Design</button>
+            <button class="filter-btn" data-filter="motion">3D & Motion</button>
+          </div>
+
+          <!-- Projects Grid -->
+          <div class="projects-grid">
+            <!-- Project 1: WebGL Ocean Terrain -->
+            <article class="project-card" data-category="web">
+              <div class="project-thumb-container">
+                <span class="project-category-badge">Web & Interactive</span>
+                <img src="images/project-1.png" alt="Abyssal Trench Explorer" class="project-thumb" loading="lazy" />
+              </div>
+              <div class="project-body">
+                <h3 class="project-title">Abyssal Trench 3D</h3>
+                <p class="project-desc">
+                  An interactive 3D bathymetric seabed explorer featuring custom depth shaders, particle simulation, and ambient audio synthesizer.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Three.js</span>
+                  <span class="project-tag">WebGL</span>
+                  <span class="project-tag">GLSL</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-inspect" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span>Inspect Specimen</span>
+                  </button>
+                  <a href="#projects" class="btn-link-icon" title="Live Demo" aria-label="Live Demo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                  <a href="https://github.com/becerraelijahsal01-sketch/Becerraeli" target="_blank" rel="noopener noreferrer" class="btn-link-icon" title="View Source" aria-label="View Source">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2: Bioluminescent Brand Identity -->
+            <article class="project-card" data-category="design">
+              <div class="project-thumb-container">
+                <span class="project-category-badge">Graphic Design</span>
+                <img src="images/project-2.png" alt="Bioluminescent Branding" class="project-thumb" loading="lazy" />
+              </div>
+              <div class="project-body">
+                <h3 class="project-title">Biolum Brand Identity</h3>
+                <p class="project-desc">
+                  Complete design system, typography specimen, and generative posters for an oceanic marine biology institute.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Figma</span>
+                  <span class="project-tag">Typography</span>
+                  <span class="project-tag">Branding</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-inspect" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span>Inspect Specimen</span>
+                  </button>
+                  <a href="#projects" class="btn-link-icon" title="Live Demo" aria-label="Live Demo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                  <a href="https://github.com/becerraelijahsal01-sketch/Becerraeli" target="_blank" rel="noopener noreferrer" class="btn-link-icon" title="View Source" aria-label="View Source">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3: Deep Caustics Engine -->
+            <article class="project-card" data-category="web">
+              <div class="project-thumb-container">
+                <span class="project-category-badge">Web & Interactive</span>
+                <img src="images/project-3.png" alt="Generative Caustics" class="project-thumb" loading="lazy" />
+              </div>
+              <div class="project-body">
+                <h3 class="project-title">Deep Caustics Engine</h3>
+                <p class="project-desc">
+                  Generative HTML5 canvas fluid dynamic simulation reproducing sunlight refraction and water ripple refraction patterns.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">HTML5 Canvas</span>
+                  <span class="project-tag">Physics</span>
+                  <span class="project-tag">ES6+</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-inspect" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span>Inspect Specimen</span>
+                  </button>
+                  <a href="#projects" class="btn-link-icon" title="Live Demo" aria-label="Live Demo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                  <a href="https://github.com/becerraelijahsal01-sketch/Becerraeli" target="_blank" rel="noopener noreferrer" class="btn-link-icon" title="View Source" aria-label="View Source">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 4: Motion Graphics Reel -->
+            <article class="project-card" data-category="motion">
+              <div class="project-thumb-container">
+                <span class="project-category-badge">3D & Motion</span>
+                <img src="images/project-4.png" alt="Abyssal Motion Reel" class="project-thumb" loading="lazy" />
+              </div>
+              <div class="project-body">
+                <h3 class="project-title">Trench Motion Reel</h3>
+                <p class="project-desc">
+                  Cinematic title sequence, kinetic typography, and fluid morph animations exploring abyssal bioluminescence.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">After Effects</span>
+                  <span class="project-tag">Blender</span>
+                  <span class="project-tag">Motion</span>
+                </div>
+                <div class="project-actions">
+                  <button class="btn-inspect" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span>Inspect Specimen</span>
+                  </button>
+                  <a href="#projects" class="btn-link-icon" title="Live Demo" aria-label="Live Demo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                  <a href="https://github.com/becerraelijahsal01-sketch/Becerraeli" target="_blank" rel="noopener noreferrer" class="btn-link-icon" title="View Source" aria-label="View Source">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 5: Student "Add Your Project" Slot -->
+            <div class="project-card add-card" onclick="alert('To add a new project, simply copy an <article class=\'project-card\'> block inside index.html and update the image, title, and links!')">
+              <div class="add-card-content">
+                <div class="add-icon-box">+</div>
+                <h4 style="font-size: 1.15rem; color: var(--bio-cyan);">Add Next Project</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 240px;">
+                  Duplicate an article card in <code>index.html</code> to display your next assignment or creation!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SKILLS & ARSENAL // Abyssopelagic Zone (-6,000m)
+           ==================================================================== -->
+      <section id="skills" class="skills-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="depth-badge">ZONE: ABYSSOPELAGIC // -6,000M</div>
+            <h2 class="section-title">Technical <span class="glow-text">Arsenal</span></h2>
+            <p class="section-desc">
+              Hardware and software proficiencies engineered to withstand extreme digital pressures.
+            </p>
+          </div>
+
+          <div class="skills-grid">
+            <!-- Web Technologies -->
+            <div class="glass-panel skill-category">
+              <div class="category-header">
+                <span class="category-icon">💻</span>
+                <h3 class="category-title">Front-End Engineering</h3>
+              </div>
+              <div class="skill-item-list">
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">HTML5 & Semantic Architecture</span>
+                    <span class="skill-rating">95%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 95%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">CSS3 / Flexbox & CSS Grid</span>
+                    <span class="skill-rating">92%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 92%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">JavaScript (ES6+) & DOM Engine</span>
+                    <span class="skill-rating">88%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 88%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">Responsive Design & Mobile-First</span>
+                    <span class="skill-rating">90%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 90%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Design & Creative -->
+            <div class="glass-panel skill-category">
+              <div class="category-header">
+                <span class="category-icon">🎨</span>
+                <h3 class="category-title">Design & Creative Media</h3>
+              </div>
+              <div class="skill-item-list">
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">UI/UX & Wireframing (Figma)</span>
+                    <span class="skill-rating">90%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 90%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">Adobe Creative Cloud (Ps / Ai)</span>
+                    <span class="skill-rating">85%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">Design Systems & Typography</span>
+                    <span class="skill-rating">88%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 88%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">Motion Design & Video Assets</span>
+                    <span class="skill-rating">82%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 82%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workflow & Deployment -->
+            <div class="glass-panel skill-category">
+              <div class="category-header">
+                <span class="category-icon">🚀</span>
+                <h3 class="category-title">Tools & Deployment</h3>
+              </div>
+              <div class="skill-item-list">
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">Git Version Control & GitHub</span>
+                    <span class="skill-rating">92%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 92%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">GitHub Pages Publishing</span>
+                    <span class="skill-rating">95%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 95%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">HTML5 Canvas & Web Animations</span>
+                    <span class="skill-rating">84%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 84%;"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-info">
+                    <span class="skill-name">Performance & Accessibility</span>
+                    <span class="skill-rating">89%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 89%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CONTACT / TRANSMISSION // Hadal Trench (-11,034m Challenger Deep)
+           ==================================================================== -->
+      <section id="contact" class="contact-section">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="depth-badge">ZONE: HADAL TRENCH // -11,034M</div>
+            <h2 class="section-title">Sonar <span class="glow-text">Transmission</span></h2>
+            <p class="section-desc">
+              Have a project in mind or want to collaborate? Transmit a ping down into the trench.
+            </p>
+          </div>
+
+          <div class="contact-container">
+            <div class="glass-panel console-card">
+              <div class="console-top">
+                <div class="sonar-status-light">
+                  <span class="ping-dot"></span>
+                  <span>SUBMERSIBLE TRANSCEIVER: ONLINE</span>
+                </div>
+                <span>FREQ: 432.8 KHZ</span>
+              </div>
+
+              <form id="sonar-form" class="contact-form">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Operator / Name</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="e.g. Captain Nemo / Jane Doe" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Return Frequency / Email</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="e.g. explorer@domain.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-message" class="form-label">Transmission Message</label>
+                  <textarea id="contact-message" class="form-textarea" placeholder="Enter your mission details, collaboration offer, or feedback..." required></textarea>
+                </div>
+
+                <div class="form-submit-row">
+                  <button type="submit" class="btn-primary">
+                    <span>📡 Transmit Ping</span>
+                  </button>
+                  <div class="transmission-feedback"></div>
+
+                  <div class="social-links">
+                    <a href="https://github.com/becerraelijahsal01-sketch/Becerraeli" target="_blank" rel="noopener noreferrer" class="social-link">GitHub ↗</a>
+                    <a href="mailto:elijah@example.com" class="social-link">Email ✉</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================================================================
+         SPECIMEN LIGHTBOX MODAL
+         ==================================================================== -->
+    <div id="specimen-modal" class="specimen-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card">
+        <button class="modal-close-btn" aria-label="Close Modal">&times;</button>
+        <div class="modal-img-container">
+          <img src="" alt="Specimen Full View" class="modal-img" />
+        </div>
+        <h3 id="modal-title" class="modal-title">Specimen Details</h3>
+        <p class="modal-desc"></p>
+        <div class="modal-tags project-tags"></div>
+        <div style="margin-top: 20px;">
+          <a href="#" class="btn-primary modal-link-btn" target="_blank" rel="noopener noreferrer">Launch Live Preview ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         FOOTER // Oceanic Telemetry
+         ==================================================================== -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div>
+          <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 6px;">BECERRA ELIJAH // 10C F26</h4>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">Santa Monica College • Creative Web Architecture</p>
+        </div>
+        <div class="footer-telemetry">
+          <div>CHALLENGER DEEP // 11°22′N 142°35′E</div>
+          <div>POWER CELL: 100% NOMINAL</div>
+        </div>
+        <a href="#hero" class="back-to-surface-btn">
+          <span>▲ Surface To Top</span>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Elijah Becerra. Built with HTML5, CSS3 & JavaScript. Deployed with GitHub Pages.</p>
+        <p>Press <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: monospace;">L</kbd> to toggle submersible searchlight.</p>
+      </div>
+    </footer>
   </body>
 </html>
